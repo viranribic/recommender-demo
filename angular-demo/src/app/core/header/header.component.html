@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink="/login" class="navbar-brand">Recommender demo</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+
+      <!-- A list of possible routes one can navigate to-->
+      <!--<ul class="nav navbar-nav">-->
+        <!--&lt;!&ndash;<li routerLinkActive="active"><a routerLink="/home">Home</a></li>&ndash;&gt;-->
+        <!--&lt;!&ndash;<li routerLinkActive="active"><a [routerLink]="'/templateGenerator'">Template Generator</a></li>&ndash;&gt;-->
+      <!--</ul>-->
+
+
+      <ng-template [ngIf]="this.authService.isLoggedIn()">
+        <!-- A list of possible routes one can navigate to-->
+        <ul class="nav navbar-nav">
+          <!--<li routerLinkActive="active"><a routerLink="/home">Home</a></li>-->
+          <!--<li routerLinkActive="active"><a [routerLink]="'/templateGenerator'">Template Generator</a></li>-->
+          <!--<li routerLinkActive="active"><a routerLink="/models">Models</a></li>-->
+
+          <li routerLinkActive="active"><a routerLink="/gallery">Random Images</a></li>
+          <li routerLinkActive="active"><a routerLink="/liked">Liked Images</a></li>
+          <li routerLinkActive="active"><a routerLink="/recommended">Recommended Images</a></li>
+        </ul>
+
+      </ng-template>
+
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="! this.authService.isLoggedIn()">
+          <li><a routerLink="/signup">Register</a></li>
+          <li><a routerLink="/login">Login</a></li>
+        </ng-template>
+
+        <ng-template [ngIf]="this.authService.isLoggedIn()">
+
+          <li class="dropdown" appDropdown >
+            <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a style="cursor: pointer;" (click)="onLogOut()">Log Out</a></li>
+            </ul>
+          </li>
+
+        </ng-template>
+
+
+      </ul>
+
+        <!-- Example of a dropdown menu -->
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li class="dropdown" appDropdown>-->
+          <!--<a style="cursor: pointer;" class="dropdown-toggle" role="button">Options <span class="caret"></span></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a style="cursor: pointer;" routerLink="/users">Profile</a></li>-->
+            <!--<li><a style="cursor: pointer;">Log Out</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+
+    </div>
+  </div>
+</nav>
