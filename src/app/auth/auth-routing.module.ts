@@ -5,7 +5,8 @@ import {LoginComponent} from './login/login.component';
 
 
 const authRoutes: Routes = [
-  { path: 'signup', component: SignupComponent },
+  // TODO add email verification and finish signup
+  // { path: 'signup', component: SignupComponent },
   { path: 'login' ,  component: LoginComponent },
 ];
 
