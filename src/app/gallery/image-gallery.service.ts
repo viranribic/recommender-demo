@@ -18,7 +18,7 @@ export class ImageGalleryService {
     const params = new HttpParams().append('page', String(page));
     return this.http
       .get<any>(
-        this.apiUrl + 'api/image',
+        this.apiUrl + 'api/image/random/',
         {
           params: params
         });
@@ -28,7 +28,7 @@ export class ImageGalleryService {
     const params = new HttpParams().append('page', String(page));
     return this.http
       .get<any>(
-        this.apiUrl + 'api/image/recommended',
+        this.apiUrl + 'api/image/recommended/',
         {
           params: params
         });
@@ -39,7 +39,7 @@ export class ImageGalleryService {
     const params = new HttpParams().append('page', String(page));
     return this.http
       .get<any>(
-        this.apiUrl + 'api/image/liked',
+        this.apiUrl + 'api/image/liked/',
         {
           params: params
         });
