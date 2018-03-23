@@ -12,13 +12,13 @@ export class ImageGalleryService {
               private authService: AuthService) {
   }
 
-  private backendUrl = AppSettings.BACKEND_URL;
+  private apiUrl = AppSettings.API_URL;
 
   getImages(page: number) {
     const params = new HttpParams().append('page', String(page));
     return this.http
       .get<any>(
-        this.backendUrl + 'api/image',
+        this.apiUrl + 'api/image',
         {
           params: params
         });
@@ -28,7 +28,7 @@ export class ImageGalleryService {
     const params = new HttpParams().append('page', String(page));
     return this.http
       .get<any>(
-        this.backendUrl + 'api/image/recommended',
+        this.apiUrl + 'api/image/recommended',
         {
           params: params
         });
@@ -39,7 +39,7 @@ export class ImageGalleryService {
     const params = new HttpParams().append('page', String(page));
     return this.http
       .get<any>(
-        this.backendUrl + 'api/image/liked',
+        this.apiUrl + 'api/image/liked',
         {
           params: params
         });
@@ -47,6 +47,6 @@ export class ImageGalleryService {
   }
 
   likeAction(id: number, liked: boolean) {
-    return this.http.post(this.backendUrl + 'api/image/like/', {id: id , like: liked});
+    return this.http.post(this.apiUrl + 'api/image/like/', {id: id , like: liked});
   }
 }

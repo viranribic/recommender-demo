@@ -13,7 +13,7 @@ import {AppSettings} from '../appSettings';
 @Injectable()
 export class AuthService {
   token: string;
-  private serverUrl = 'http://localhost:8000';
+  private apiUrl = AppSettings.API_URL;
 
   constructor(private router: Router,
               private http: HttpClient,
@@ -25,7 +25,7 @@ export class AuthService {
       'Content-Type': 'application/json',
     });
 
-    return this.http.post(AppSettings.BACKEND_URL + 'api-token-auth/',
+    return this.http.post(this.apiUrl  + 'api-token-auth/',
       JSON.stringify({ username: username, password: password }),
       {headers: headers}).map((response: Response) => {
 
@@ -48,7 +48,7 @@ export class AuthService {
       'Content-Type': 'application/json',
     });
 
-    return this.http.post(AppSettings.BACKEND_URL + 'api/register/',
+    return this.http.post(this.apiUrl + 'api/register/',
       JSON.stringify({ username: username, email: email, password: password }),
       {headers: headers});
 

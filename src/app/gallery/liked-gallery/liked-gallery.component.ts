@@ -81,7 +81,7 @@ export class LikedGalleryComponent implements OnInit {
           this.images        = images;
           this.selectedImage = this.images[0];
         } else {
-          images.push(new ImageModel( -1, 'media/no_images.jpg', -1, false));
+          images.push(new ImageModel( -1, 'static/img/no_images.jpg', -1, false));
           this.images        = images;
           this.selectedImage = null;
 

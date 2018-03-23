@@ -16,7 +16,7 @@ export class ImageModel implements GALLERY_IMAGE {
     extUrl?: string,
     extUrlTarget?: string) {
 
-    this.url = AppSettings.BACKEND_URL + path;
+    this.url = AppSettings.STORAGE_URL + path;
   }
 }
 

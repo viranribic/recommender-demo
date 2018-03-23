@@ -1,9 +1,5 @@
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './core/home/home.component';
-import {TemplateGeneratorComponent} from './template-generator/template-generator.component';
 import {NgModule} from '@angular/core';
-import {UserComponent} from './users/user/user.component';
-import {ModelModule} from './model/model.module';
 import {GalleryComponent} from './gallery/gallery.component';
 import {AuthGuard} from './auth/auth-guard.service';
 import {RecommendedGalleryComponent} from './gallery/recommended-gallery/recommended-gallery.component';

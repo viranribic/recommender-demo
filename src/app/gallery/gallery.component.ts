@@ -1,17 +1,17 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import {DEMO_GALLERY_CONF} from '../config';
+import {DEMO_GALLERY_CONF} from './config';
 import {GALLERY_CONF, NgxImageGalleryComponent} from 'ngx-image-gallery';
-import {ImageGalleryService} from '../image-gallery.service';
-import {ImageModel} from '../image.model';
+import {ImageGalleryService} from './image-gallery.service';
+import {ImageModel} from './image.model';
 
 @Component({
-  selector: 'app-recommended-gallery',
-  templateUrl: './recommended-gallery.component.html',
-  styleUrls: ['./recommended-gallery.component.css']
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.css']
 })
-export class RecommendedGalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit {
 
-  @Input() title = 'Recommended gallery';
+  @Input() title = 'Image gallery';
   @Input() conf: GALLERY_CONF = DEMO_GALLERY_CONF;
   @Input() images: ImageModel[] = [];
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
@@ -67,11 +67,11 @@ export class RecommendedGalleryComponent implements OnInit {
   }
 
   onRefreshGallery() {
-    this.imageService.getRecommendedImages(this.requestPage).subscribe(
+    this.imageService.getImages(this.requestPage).subscribe(
       (data) => {
 
-        this.nextPage = (data['next'] === null) ? null : this._getQueryParamsPage(data['next']);
-        this.prevPage = (data['previous'] === null) ? null : this._getQueryParamsPage(data['previous']);
+      this.nextPage = (data['next'] === null) ? null : this._getQueryParamsPage(data['next']);
+      this.prevPage = (data['previous'] === null) ? null : this._getQueryParamsPage(data['previous']);
 
         const images = [];
         if (data.results.length !== 0) {
@@ -81,13 +81,13 @@ export class RecommendedGalleryComponent implements OnInit {
           this.images        = images;
           this.selectedImage = this.images[0];
         } else {
-          images.push(new ImageModel( -1, 'media/empty_database.jpg', -1, false));
+          images.push(new ImageModel( -1, 'static/img/empty_database.jpg', -1, false));
           this.images        = images;
           this.selectedImage = null;
 
         }
 
-      });
+    });
   }
 
   private _getQueryParamsPage(str: string) {
