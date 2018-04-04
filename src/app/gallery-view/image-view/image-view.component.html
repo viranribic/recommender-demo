@@ -29,9 +29,9 @@
       color="accent"
       mat-raised-button
       (click)="this.onToggleLike()"
-      [disabled]="this.selectedImage === null"  >
+      [disabled]="this.selectedImage === null || this.selectedImage.label < 0"  > <!-- Labels with code lower than 0 are system messages, warnings, etc. -->
 
-      {{ !this.selectedImage.liked ? 'Like': 'Unlike'}}
+      {{ !this.selectedImage.liked ? ' Like ': 'Unlike'}}
       <i class="small material-icons"> star </i> </button>
 
     <!-- Navigate right -->

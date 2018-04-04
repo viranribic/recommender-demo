@@ -26,13 +26,14 @@ export class ImageViewComponent implements OnInit {
   }
 
   onToggleLike() {
-
-    this.imageService.likeAction(this.selectedImage.id, !this.selectedImage.liked ).subscribe(
-      (data) => {
-        this.selectedImage.liked = !this.selectedImage.liked;
-        console.log('Like action executed.');
-      }
-    );
+    if( this.selectedImage.label >= 0) {
+      this.imageService.likeAction(this.selectedImage.id, !this.selectedImage.liked ).subscribe(
+        (data) => {
+          this.selectedImage.liked = !this.selectedImage.liked;
+          console.log('Like action executed.');
+        }
+      );
+    }
 
   }
 
