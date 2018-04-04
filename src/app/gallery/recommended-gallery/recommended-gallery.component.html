@@ -1,43 +1,5 @@
-<div fxLayout="row"
-     fxLayout.lt-md="column"
-     fxLayoutAlign="center">
-
-  <mat-card fxFlex="80" style="margin: 2rem">
-    <mat-card-title-group>
-      <mat-card-title>{{title}}</mat-card-title>
-    </mat-card-title-group>
-
-    <mat-card-content>
-      <ngx-image-gallery
-        #ngxImageGallery
-        [images]="images"
-        [conf]="conf"
-      >
-      </ngx-image-gallery>
-    </mat-card-content>
-
-    <mat-card-actions fxLayoutAlign="center">
-
-      <button style="width: 100%;" color="accent" mat-raised-button (click)="this.toggleLike()" [disabled]="this.selectedImage === null"> {{ this.selectedImageLiked() ? 'Unlike': 'Like'}}<i class="small material-icons"> star </i> </button>
-
-    </mat-card-actions>
-
-    <mat-card-actions fxLayoutAlign="center">
-
-      <button style="width: 100%;" color="accent" mat-raised-button (click)="this.onPreviousPage()" [disabled]="this.prevPage === null" > Previous Page </button>
-      <button style="width: 100%;" color="accent" mat-raised-button (click)="this.onRefreshGallery()" [disabled]="this.images.length === 0"> Refresh </button>
-      <button style="width: 100%;" color="accent" mat-raised-button (click)="this.onNextPage()" [disabled]="this.nextPage === null"> Next Page</button>
-
-    </mat-card-actions>
-
-
-    <mat-grid-list cols="4" rowHeight="100px">
-      <mat-grid-tile *ngFor="let image of images">
-        <img class="responsive-img" [src]="image.url" (click)="this.albumImageClicked(image)">
-      </mat-grid-tile>
-    </mat-grid-list>
-
-  </mat-card>
-</div>
-
-
+<app-gallery-view
+  title="Recommended images"
+ [dataToken]="this.imageServiceTokens.RECOMMENDED"
+>
+</app-gallery-view>

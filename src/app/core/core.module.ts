@@ -3,19 +3,25 @@ import {HeaderComponent} from './header/header.component';
 import {SharedModule} from '../shared/shared.module';
 import {AppRoutingModule} from '../app-routing.module';
 import {AuthService} from '../auth/auth.service';
+import { HomeComponent } from './home/home.component';
+import {MatCardModule, MatStepperModule} from '@angular/material';
+import {MaterialModule} from '../material.module';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   exports: [
-    AppRoutingModule,
-    HeaderComponent
+    // AppRoutingModule, // TODO uncomment (???)
+    HeaderComponent,
+    HomeComponent
   ],
   providers: [
     AuthService,

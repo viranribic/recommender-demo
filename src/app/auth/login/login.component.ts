@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('modal') modal: LoginErrorModalComponent;
 
-  public errorMessage: string;
+  public errorMessage = 'Invalid username or password provided. Please try again.';
 
   constructor(private authService: AuthService, private  router: Router) { }
 
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },
     (error) => {
-        this.errorMessage = 'Invalid username or password provided. Please try again.';
         this.modal.show();
       }
     );

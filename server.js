@@ -1,7 +1,9 @@
 //Install express server
 const express = require('express');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+
+console.log('App started...');
 
 app.use(cors())
 // Serve only the static files form the dist directory

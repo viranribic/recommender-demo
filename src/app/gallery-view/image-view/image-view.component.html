@@ -1,0 +1,48 @@
+<mat-card class="example-card">
+
+  <mat-card-content>
+    <!-- Image display and navigation -->
+    <img
+      mat-card-image
+
+      [src]="this.selectedImage.url"
+      [alt]="this.selectedImage.altText"
+      (click)="this.onToggleLike()"
+    >
+
+  </mat-card-content>
+
+  <mat-card-actions fxLayoutAlign="center">
+    <!-- Navigate left -->
+    <button
+      style="height: 100%;"
+      color="accent"
+      mat-raised-button
+      [disabled]="this.selectedImage === null"
+      (click)="this.onNavigateLeft()">
+
+      <i class="material-icons">keyboard_arrow_left</i></button>
+
+    <!-- Image display and navigation -->
+    <button
+      style="width: 100%;"
+      color="accent"
+      mat-raised-button
+      (click)="this.onToggleLike()"
+      [disabled]="this.selectedImage === null"  >
+
+      {{ !this.selectedImage.liked ? 'Like': 'Unlike'}}
+      <i class="small material-icons"> star </i> </button>
+
+    <!-- Navigate right -->
+    <button
+      style="height: 100%;"
+      color="accent"
+      mat-raised-button
+      [disabled]="this.selectedImage === null"
+      (click)="this.onNavigateRight()">
+
+      <i class="material-icons">keyboard_arrow_right</i> </button>
+
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,66 @@
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center">
+
+  <mat-card fxFlex="80" style="margin: 2rem">
+    <mat-card-title-group>
+      <mat-card-title>{{this.title}}</mat-card-title>
+    </mat-card-title-group>
+
+    <app-image-view
+      #imageView
+      fxLayoutAlign="center"
+      *ngIf="this.images.length !== 0"
+     [selectedImage]="this.images[this.selectedIndex]"
+     (shiftImageEvent)="this.onSelectedImageChange($event)"
+    ></app-image-view>
+
+
+    <mat-card-actions fxLayoutAlign="center">
+
+      <button
+        style="width: 100%;"
+        color="accent"
+        mat-raised-button
+        (click)="this.onPreviousPage()"
+        [disabled]="!this.hasPrevPage" > Previous Page </button>
+
+      <button
+        style="width: 100%;"
+        color="accent"
+        mat-raised-button
+        (click)="this.onRefreshGallery()" > Refresh </button>
+
+      <button
+        style="width: 100%;"
+        color="accent"
+        mat-raised-button
+        (click)="this.onNextPage()"
+        [disabled]="!this.hasNextPage"> Next Page</button>
+
+    </mat-card-actions>
+
+    <!-- Gallery thumbnails section-->
+    <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile *ngFor="let image of this.images; let i = index">
+        <img
+          mat-card-image
+          [src]="image.url"
+          (click)="this.onSelectedImageChange(i)">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+</div>
+
+
+<app-login-error-modal #modal>
+  <!--<div class="app-modal-header">-->
+  <!--header-->
+  <!--</div>-->
+  <div class="app-modal-body">
+    {{ this.errorMessage }}
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
+  </div>
+</app-login-error-modal>
+
+

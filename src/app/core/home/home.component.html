@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-title>
+    Welcome to image recommender demo app!
+  </mat-card-title>
+  <mat-card-content>
+
+
+    <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+
+      <mat-step>
+        <ng-template matStepLabel>Like images</ng-template>
+
+        <p>
+          In the 'Random Images' section of the navigation bar you can access all the images available in the system.
+          There you can select some images you like and proceede to the next step.
+        </p>
+
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+
+        <ng-template matStepLabel>Inspected choices</ng-template>
+
+        <p>
+          In the 'Liked Images' section of the navigation bar you can access all the images the user has marked as favorites.
+          Based on those images the system can find similar items which can be viewed in the final section.
+        </p>
+
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+
+        <ng-template matStepLabel>Observe recommendations</ng-template>
+        <p>
+          In the 'Recommended Images' section of the navigation bar you can inspect the recommendations.
+        </p>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+
+  </mat-card-content>
+</mat-card>

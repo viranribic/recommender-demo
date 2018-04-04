@@ -1,38 +1,34 @@
+///<reference path="liked-gallery/liked-gallery.component.ts"/>
 import {NgModule} from '@angular/core';
-import {GalleryComponent} from './gallery.component';
-import {NgxImageGalleryModule} from 'ngx-image-gallery';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {
-  MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatInputModule, MatToolbar,
-  MatToolbarModule
-} from '@angular/material';
-import {FormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-import { RecommendedGalleryComponent } from './recommended-gallery/recommended-gallery.component';
-import { LikedGalleryComponent } from './liked-gallery/liked-gallery.component';
-import {ImageGalleryService} from './image-gallery.service';
+import {LikedGalleryComponent} from './liked-gallery/liked-gallery.component';
+import {RandomGalleryComponent} from './random-gallery/random-gallery.component';
+import {RecommendedGalleryComponent} from './recommended-gallery/recommended-gallery.component';
+import {ImageGalleryService} from '../shared/image-gallery.service';
+import {GalleryViewModule} from '../gallery-view/galley-view.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material';
+import {ImageServiceTokens} from '../shared/service-token.enum';
+import {MaterialModule} from '../material.module';
 
-const modules = [
-  CommonModule,
-  NgxImageGalleryModule,
-  FlexLayoutModule,
-  MatIconModule,
-  MatToolbarModule,
-  MatCardModule,
-  MatButtonModule,
-  MatInputModule,
-  MatGridListModule,
-  FormsModule
-];
+
+
 
 @NgModule({
   declarations: [
-    GalleryComponent,
     LikedGalleryComponent,
+    RandomGalleryComponent,
     RecommendedGalleryComponent
   ],
-  imports: modules ,
-  exports: modules ,
+  imports: [
+    GalleryViewModule,
+    BrowserAnimationsModule,
+    MaterialModule
+  ],
+  exports: [
+    LikedGalleryComponent,
+    RandomGalleryComponent,
+    RecommendedGalleryComponent,
+  ],
   providers: [ImageGalleryService]
 })
 export class GalleryModule {}
