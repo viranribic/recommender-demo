@@ -96,7 +96,10 @@ export class GalleryViewComponent implements OnInit {
         } else {
           this.selectedIndex = 0;
           this.images = [];
-          this.modal.show();
+          this.imageService.errorInfo().subscribe( ( errData: any) => {
+            this.selectedIndex = 0;
+            this.images = [ new ImageModel(-1, errData.path, -1, false, 0)];
+          });
         }
 
       },

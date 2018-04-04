@@ -59,4 +59,7 @@ export class ImageGalleryService {
     return this.http.post(this.apiUrl + 'api/image/action/like/', {id: id , like: liked});
   }
 
+  errorInfo(): Observable<any> {
+    return this.http.get(this.apiUrl + 'api/error/info/');
+  }
 }
