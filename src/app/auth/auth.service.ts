@@ -42,22 +42,19 @@ export class AuthService {
     }).shareReplay();
   }
 
-  signup(username: string , email: string, password: string) {
-    console.log('Not allowed!');
-  }
 
   // TODO add email verification and finish signup
-  // signup(username: string , email: string, password: string) {
-  //   const headers = new HttpHeaders({
-  //     'Accept': 'application/json',
-  //     'Content-Type': 'application/json',
-  //   });
-  //
-  //   return this.http.post(this.apiUrl + 'api/register/',
-  //     JSON.stringify({ username: username, email: email, password: password }),
-  //     {headers: headers});
-  //
-  // }
+  signup(username: string , email: string, password: string) {
+    const headers = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post(this.apiUrl + 'api/register/',
+      JSON.stringify({ username: username, email: email, password: password }),
+      {headers: headers});
+
+  }
 
   logout() {
     // This should be enough.

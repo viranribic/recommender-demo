@@ -26,16 +26,16 @@ export class SignupComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
 
-    // this.authService.signup(username, email, password).subscribe(
-    //   () => {
-    //     console.log('User has signed up.');
-    //     this.router.navigate(['/login']);
-    //   },
-    //   (error) => {
-    //     this.errorMessage = 'There was an error in the registration process. \nPlease provide valid information.';
-    //     this.modal.show();
-    //   }
-    // );
+    this.authService.signup(username, email, password).subscribe(
+      () => {
+        console.log('User has signed up.');
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        this.errorMessage = 'There was an error in the registration process. \nPlease provide valid information.';
+        this.modal.show();
+      }
+    );
   }
 
 }
